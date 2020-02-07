@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><mascotas>
+
+<Mascota Estado="Estado555" Fecha="31/0/120" Id="1" Nombre="Nombrepoio" Raza="Razaiio">
+<Historial><Consulta Administrador="Lina Angarita H." Fecha="31/0/120"/>
+<Consulta Administrador="Lina Angarita H." Fecha="31/0/120"/></Historial>
+</Mascota>
+
+<Mascota Estado="EstadoASDASD" Fecha="31/0/120" Id="2" Nombre="JASKDAJS" Raza="ASDASD">
+<Historial><Consulta Administrador="Lina Angarita H." Fecha="31/0/120"/>
+</Historial></Mascota>
+<Mascota Estado="enfermito" Fecha="3/1/120" Id="5" Nombre="felipe" Raza="pincher"><Historial>
+<Consulta Administrador="Lina Angarita H." Fecha="3/1/120"/></Historial></Mascota><Mascota Estado="Enfermo" Fecha="3/1/120" Id="10" Nombre="Sauron" Raza="persa"><Historial><Consulta Administrador="Lina Angarita H." Fecha="3/1/120"/><Consulta Administrador="Lina Angarita H." Fecha="7/1/120"/><Consulta Administrador="Lina Angarita H." Fecha="7/1/120"/></Historial></Mascota><Mascota Estado="Comprometido" Fecha="3/1/120" Id="11" Nombre="Juanca" Raza="otaku"><Historial><Consulta Administrador="Lina Angarita H." Fecha="3/1/120"/><Consulta Administrador="Lina Angarita H." Fecha="7/1/120"/></Historial></Mascota><Mascota Estado="Enfermo " Fecha="3/1/120" Id="20" Nombre="Colme" Raza="pug"><Historial><Consulta Administrador="Lina Angarita H." Fecha="3/1/120"/></Historial></Mascota><Mascota Estado="Estado" Fecha="6/1/120" Id="4" Nombre="Pepe" Raza="Pitbull"><Historial><Consulta Administrador="Lina Angarita H." Fecha="6/1/120"/><Consulta Administrador="Lina Angarita H." Fecha="3/1/120"/><Consulta Administrador="Lina Angarita H." Fecha="7/1/120"/></Historial></Mascota><Mascota Estado="Vacunacion" Fecha="7/1/120" Id="14" Nombre="Rambo" Raza="Pastor Aleman"><Historial><Consulta Administrador="Lina Angarita H." Fecha="7/1/120"/></Historial></Mascota></mascotas>
