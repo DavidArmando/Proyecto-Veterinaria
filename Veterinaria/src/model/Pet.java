@@ -19,6 +19,10 @@ public class Pet {
 		this.birthdate = birthdate;
 	}
 	
+	public Pet(int id) {
+		this.id=id;
+	}
+	
 	public void setState(String state) {
 		this.state = state;
 	}
@@ -37,12 +41,4 @@ public class Pet {
 	public Date getBirthdate() {
 		return birthdate;
 	}
-
-	@Override
-	public String toString() {
-		return "Mascota: nombre: " + name + ", raza: " + race + ", id: " + id + ", estado: " + state + ", fecha de nacimiento: " + birthdate
-				;
-	}
-	
-	
 }

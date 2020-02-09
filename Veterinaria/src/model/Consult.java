@@ -18,6 +18,11 @@ public class Consult {
 		this.prescription = prescription;
 	}
 
+	public Consult(Date date, Pet pet) {
+		this.date = date;
+		this.pet = pet;
+	}
+
 	public Date getDate() {
 		return date;
 	}
@@ -41,11 +46,4 @@ public class Consult {
 	public String getPrescription() {
 		return prescription;
 	}
-
-	@Override
-	public String toString() {
-		return "\nConsulta: Fecha: " + date  + ", Veterinario: " + admin;
-	}
-
-	
 }
