@@ -67,9 +67,9 @@ public class Controller implements ActionListener {
 
 		case CONSULT_CREATE:
 			System.out.println("Boton crear");
-			dao.createConsult(createConsult.getData());
-			dao.readFile(xmlData);
-			this.frame.setData(dao.getHistoryData());
+			//dao.createConsult(createConsult.getData());
+			//dao.readFile(xmlData);
+			//this.frame.setData(dao.getHistoryData());
 			break;
 		case FB:
 			System.out.println("https://www.facebook.com/MascoCentroA.H/");
@@ -95,13 +95,13 @@ public class Controller implements ActionListener {
 			// initialAdmin.setPet(pet);
 		case OPEN_FILE:
 			FileChooser chooser = new FileChooser();
-			xmlData = chooser.getPath();
-			dao.readFile(xmlData);
-			this.frame.setData(dao.getHistoryData());
+			//xmlData = chooser.getPath();
+		//	dao.readFile(xmlData);
+		//	this.frame.setData(dao.getHistoryData());
 			break;
 		case DELETE:
-			dao.deletePet(this.deleteConsult.getData());
-			this.frame.setData(dao.getHistoryData());
+			//dao.deletePet(this.deleteConsult.getData());
+			//this.frame.setData(dao.getHistoryData());
 			break;
 		case OPEN:
 			this.dialogPet.setTitle("Borrar Mascota");
