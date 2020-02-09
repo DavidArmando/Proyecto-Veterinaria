@@ -42,6 +42,7 @@ public class VetDao {
 
 	/**
 	 * Escribe el fichero
+	 * 
 	 * @return exito
 	 */
 	private boolean writeFile() {
@@ -64,6 +65,7 @@ public class VetDao {
 
 	/**
 	 * Lee un fichero y lo devuelve como document
+	 * 
 	 * @param file fichero
 	 * @return document
 	 */
@@ -87,7 +89,8 @@ public class VetDao {
 
 	/**
 	 * Busca un elemento a partir de su identificador
-	 * @param id identificador
+	 * 
+	 * @param id       identificador
 	 * @param listName lista de elemntos
 	 * @return ewlemento
 	 */
@@ -105,12 +108,12 @@ public class VetDao {
 		return null;
 	}
 
-	
 	/**
 	 * Busca un elemento con base en un elemento padre y una etiqueta
-	 * @param index posicion
+	 * 
+	 * @param index   posicion
 	 * @param element padre
-	 * @param tag nombre
+	 * @param tag     nombre
 	 * @return elemento
 	 */
 	private Element searchElementByTagNameOf(int index, Element element, String tag) {
@@ -120,6 +123,7 @@ public class VetDao {
 
 	/**
 	 * Crea una mascota
+	 * 
 	 * @param data informacion basica
 	 * @return exito
 	 */
@@ -158,6 +162,7 @@ public class VetDao {
 
 	/**
 	 * Lee una mascota
+	 * 
 	 * @param id identificador
 	 * @return mascota
 	 */
@@ -174,6 +179,7 @@ public class VetDao {
 
 	/**
 	 * actualiza una mascota
+	 * 
 	 * @param data informacion
 	 * @return exito
 	 */
@@ -197,6 +203,7 @@ public class VetDao {
 
 	/**
 	 * Borra una mascota
+	 * 
 	 * @param id identificador
 	 * @return exito
 	 */
@@ -212,19 +219,19 @@ public class VetDao {
 
 	/**
 	 * Genera una consulta
-	 * @param pos posiciond de la consulta
+	 * 
+	 * @param pos     posiciond de la consulta
 	 * @param consult objeto consulta
 	 * @return exito
 	 */
-	public boolean createConsult(int pos, Consult consult) {
+	public boolean createConsult(Consult consult) {
 		this.readFile();
 
 		Element petElement = this.searchElement(consult.getPet().getId(), "Mascota");
-		Element consultElement = searchElementByTagNameOf(pos, petElement, "Consulta");
 
-		if (consultElement == null) {
+		if (petElement != null) {
 			Element historyElement = (Element) petElement.getElementsByTagName("Historial").item(0);
-			consultElement = document.createElement("Consulta");
+			Element consultElement = document.createElement("Consulta");
 			consultElement.setAttribute("Fecha", Utilities.convertDate(consult.getDate()));
 			historyElement.appendChild(consultElement);
 			return this.writeFile();
@@ -235,17 +242,18 @@ public class VetDao {
 
 	/**
 	 * Genera una consulta
+	 * 
 	 * @param data informacion basica
 	 * @return exito
 	 */
 	public boolean createConsult(String[] data) {
-		return this.createConsult(Integer.parseInt(data[1]),
-				new Consult(Utilities.convertString(data[2]), new Pet(Integer.parseInt(data[0]))));
+		return this.createConsult(new Consult(Utilities.convertString(data[2]), new Pet(Integer.parseInt(data[0]))));
 	}
 
 	/**
 	 * lee una consulta
-	 * @param id identificador de mascota
+	 * 
+	 * @param id  identificador de mascota
 	 * @param pos posicion consulta
 	 * @return consulta
 	 */
@@ -265,11 +273,12 @@ public class VetDao {
 
 	/**
 	 * Actualiza una consulta
-	 * @param id identificador de mascota
-	 * @param pos posicion de consulta
-	 * @param date fecha consulta
-	 * @param process proceso consulta
-	 * @param diagnosis diagnostico consulta
+	 * 
+	 * @param id           identificador de mascota
+	 * @param pos          posicion de consulta
+	 * @param date         fecha consulta
+	 * @param process      proceso consulta
+	 * @param diagnosis    diagnostico consulta
 	 * @param prescription precripcion consulta
 	 * @return exito
 	 */
@@ -289,9 +298,10 @@ public class VetDao {
 
 		return false;
 	}
-	
+
 	/**
 	 * Actualiza una consulta
+	 * 
 	 * @param data datos de consulta
 	 * @return exito
 	 */
@@ -299,10 +309,11 @@ public class VetDao {
 		return this.updateConsult(Integer.parseInt(data[0]), Integer.parseInt(data[1]), data[2], data[3], data[4],
 				data[5]);
 	}
-	
+
 	/**
 	 * Borra una consulta de una mascota id
-	 * @param id Identificador de la mascota
+	 * 
+	 * @param id  Identificador de la mascota
 	 * @param pos Posiciond e la consulta
 	 * @return exito
 	 */
