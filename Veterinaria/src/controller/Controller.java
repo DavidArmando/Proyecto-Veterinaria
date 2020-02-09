@@ -3,6 +3,10 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.net.URISyntaxException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import general.HandlerLanguage;
 import model.AdminDao;
 import model.Administrator;
@@ -13,6 +17,7 @@ import view.FileChooser;
 import view.MyFrame;
 import view.PanelCreateConsult;
 import view.PanelDeletePet;
+import view.PanelShowConsult;
 
 public class Controller implements ActionListener {
 
@@ -21,6 +26,7 @@ public class Controller implements ActionListener {
 	private DialogPet dialogPet;
 	private PanelCreateConsult createConsult;
 	private PanelDeletePet deleteConsult;
+	private PanelShowConsult panelShowConsult;
 	private MyFrame frame;
 	private VetDao dao;
 	private AdminDao adminDao;
@@ -58,7 +64,7 @@ public class Controller implements ActionListener {
 			this.dialogPet.setTitle("Crear Consulta");
 			this.dialogPet.changePanel(createConsult);
 			this.dialogPet.setVisible(true);
-			
+
 			break;
 
 		case LOGOUT:
@@ -67,12 +73,12 @@ public class Controller implements ActionListener {
 
 		case CONSULT_CREATE:
 			System.out.println("Boton crear");
-			//dao.createConsult(createConsult.getData());
-			//dao.readFile(xmlData);
-			//this.frame.setData(dao.getHistoryData());
+			// dao.createConsult(createConsult.getData());
+			// dao.readFile(xmlData);
+			// this.frame.setData(dao.getHistoryData());
 			break;
 		case FB:
-			System.out.println("https://www.facebook.com/MascoCentroA.H/");
+			this.goToURL("https://www.facebook.com/MascoCentroA.H/");
 			break;
 		case TW:
 			System.out.println("Twitter");
@@ -87,21 +93,23 @@ public class Controller implements ActionListener {
 			System.out.println("@gmail");
 			break;
 		case CONSULT:
-			System.out.println("boton para abrir la consulta");
+			System.out.println("Abrir Consulta");
+			this.dialogPet.changePanel(panelShowConsult);
+			this.dialogPet.setVisible(true);
 			break;
 		case CONFIRM_OPEN:
 			// int id = elemento.getIs();
 			// Pet pet =dao.readPet(id);
 			// initialAdmin.setPet(pet);
 		case OPEN_FILE:
-			FileChooser chooser = new FileChooser();
-			//xmlData = chooser.getPath();
-		//	dao.readFile(xmlData);
-		//	this.frame.setData(dao.getHistoryData());
+			// FileChooser chooser = new FileChooser();
+			// xmlData = chooser.getPath();
+			// dao.readFile(xmlData);
+			// this.frame.setData(dao.getHistoryData());
 			break;
 		case DELETE:
-			//dao.deletePet(this.deleteConsult.getData());
-			//this.frame.setData(dao.getHistoryData());
+			// dao.deletePet(this.deleteConsult.getData());
+			// this.frame.setData(dao.getHistoryData());
 			break;
 		case OPEN:
 			this.dialogPet.setTitle("Borrar Mascota");
@@ -148,5 +156,25 @@ public class Controller implements ActionListener {
 
 	public void setDeleteConsult(PanelDeletePet deleteConsult) {
 		this.deleteConsult = deleteConsult;
+	}
+
+	public void setShowConsult(PanelShowConsult panelShowConsult) {
+		this.panelShowConsult = panelShowConsult;
+
+	}
+
+	public void goToURL(String URL) {
+		if (java.awt.Desktop.isDesktopSupported()) {
+			java.awt.Desktop desktop = java.awt.Desktop.getDesktop();
+
+			if (desktop.isSupported(java.awt.Desktop.Action.BROWSE)) {
+				try {
+					java.net.URI uri = new java.net.URI(URL);
+					desktop.browse(uri);
+				} catch (URISyntaxException | IOException ex) {
+					Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+				}
+			}
+		}
 	}
 }

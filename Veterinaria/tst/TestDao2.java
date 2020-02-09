@@ -1,12 +1,12 @@
 import java.util.Date;
 
 import model.Pet;
-import model.VetDao2;
+import model.VetDao;
 
 public class TestDao2 {
 
 	public static void main(String[] args) {
-		VetDao2 vd=new VetDao2();
+		VetDao vd=new VetDao();
 		Pet pet=new Pet("Pepe", "Schnauzer", 1, "Muerto", new Date());
 		
 		if(vd.createPet(pet))

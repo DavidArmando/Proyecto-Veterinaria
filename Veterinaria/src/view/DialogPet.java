@@ -15,10 +15,11 @@ public class DialogPet extends JDialog{
 		setResizable(false);
 		setSize(400, 480);
 		setLocationRelativeTo(null);
-		setTitle("Crear Consulta");
+		setTitle("Masco Centro AH.");
 		
 		PanelCreateConsult panelCreateEvent = new PanelCreateConsult();
 		PanelDeletePet panelDeleteConsult = new PanelDeletePet();
+		PanelShowConsult panelShowConsult = new PanelShowConsult();
 		add(panelCreateEvent);
 		panelActual = panelCreateEvent;
 	}
